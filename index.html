@@ -1,0 +1,103 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohaddis Khalid Shaikh | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+ <script src="script.js"></script>
+ 
+
+ 
+ <!-- Hero Section -->
+  <div class="blue-container" id="star-container">
+  <section class="hero">
+    <h1>Hello, I'm <span>Mohaddis Khalid Shaikh</span></h1>
+    <h2>Welcome to my <span>Portfolio</span></h2>
+    <p>Web Developer | Creative Thinker</p>
+    <a href="projects.html" class="btn">View My Projects</a>
+    <a href="aboutme.html" class="btn">About Me</a>
+    <a href="contact.html" class="btn">Contact</a>
+  </section>
+  </div>
+
+   <!--Stars animation -->
+  <style>
+    /* Full-screen blue container */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-color: #001f3f;
+      overflow: hidden;
+    }
+
+    /* Star style */
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear forwards;
+    }
+
+    /* Falling animation */
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+
+
+ 
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mohaddis Khalid Shaikh. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    const container = document.getElementById('star-container');
+
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+
+      // Random size between 1px and 3px
+      const size = Math.random() * 2 + 1;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+
+      // Random horizontal position within the container width
+      star.style.left = `${Math.random() * window.innerWidth}px`;
+
+      // Random animation duration (2–4 seconds)
+      const duration = Math.random() * 2 + 2;
+      star.style.animationDuration = `${duration}s`;
+
+      // Optional: random animation delay
+      star.style.animationDelay = `${Math.random()}s`;
+
+      // Start at the top
+      star.style.top = `-5px`;
+
+      container.appendChild(star);
+
+      // Remove star after it finishes falling
+      setTimeout(() => {
+        star.remove();
+      }, duration * 1000 + 1000);
+    }
+
+    // Continuously create stars every 100ms
+    setInterval(createStar, 100);
+  </script>
+

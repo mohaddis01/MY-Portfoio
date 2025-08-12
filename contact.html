@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohaddis Khalid Shaikh | Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+     background: linear-gradient(to right, #cfcfcf, #9e9fff);
+    }
+
+    .container-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .contact {
+      background-color: rgb(226, 226, 226);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .contact h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .contact textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact button {
+       background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+       background: linear-gradient(to right,  #1e4ddb,#0e2983);
+    }
+
+    /* ✅ Sent Animation Box */
+    .sent-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      border-radius: 12px;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .circle {
+      width: 80px;
+      height: 80px;
+      background: #4CAF50;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .checkmark {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: draw 0.5s forwards ease-in-out;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .sent-animation p {
+      font-weight: bold;
+      color: #333;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    #home-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    #home-btn {
+        display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      z-index: 2;
+      position: relative;
+      margin-top: 11px;
+      background: linear-gradient(to right,  #6365e0,#0e2983);
+      color: white;
+      top:20px;
+      right: 20px;
+      position: fixed;
+    }
+ 
+      footer {
+      text-align: center;
+      padding: 2rem;
+      background:#1d2e41;
+      color: white;
+      
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-contact">
+    <section class="contact" id="contact">
+      <h2>Get In Touch</h2>
+      <form id="contactForm" action="https://formsubmit.co/ininto65@gmail.com" method="POST">
+      
+
+        <input type="text" placeholder="Enter Your Name" required />
+        <input type="email" placeholder="Enter Your Email" required />
+        <textarea placeholder="Enter Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- ✅ Tick Animation Container -->
+      <div class="sent-animation" id="sentAnimation">
+        <div class="circle">
+          <svg class="checkmark" viewBox="0 0 52 52">
+            <path d="M14 27l10 10 15-20" fill="none" class="checkmark-path" />
+          </svg>
+        </div>
+        <p>Message Sent!</p>
+      </div>
+    </section>
+  </div>
+
+  <a href="index.html" class="btn" id="home-btn">Home</a>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const sentBox = document.getElementById('sentAnimation');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Hide the form
+      form.style.display = 'none';
+
+      // Show sent animation
+      sentBox.style.display = 'flex';
+
+      // Optionally auto-hide after a few seconds and reset form
+      setTimeout(() => {
+        sentBox.style.display = 'none';
+        form.style.display = 'flex';
+        form.reset();
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
+ <!-- Footer -->
+  <footer>
+    <p>© 2025 Mohaddis Khalid Shaikh. All rights reserved.</p>
+  </footer>
